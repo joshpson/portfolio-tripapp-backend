@@ -8,13 +8,22 @@ class Api::V1::TripsController < ApplicationController
   end
 
   def create
-    @trip = Trip.create(trip_params)
-    render json: @trip, status: :accepted
+    @trip = Trip.new(trip_params)
+    if @trip.valid?
+      @trip.save
+      render json: @trip, status: :accepted
+    else
+      render json: {errors: @trip.errors.full_messages}, status: :unprocessible_entity
+    end
   end
 
   def update
     @trip.update(trip_params)
-    render json: @trip, status: :accepted
+    if @trip.save
+      render json: @trip, status: :accepted
+    else
+      render json: {errors: @trip.errors.full_messages}, status: :unprocessible_entity
+    end
   end
 
   def show
