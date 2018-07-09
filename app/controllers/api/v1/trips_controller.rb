@@ -41,7 +41,7 @@ class Api::V1::TripsController < ApplicationController
   end
 
   def trip_params
-    params.require(:trip).permit(:city, :start_date, :end_date, :address, :image, :address_latitude, :address_longitude)
+    params.require(:trip).permit(:city, :start_date, :end_date, :address, :image, :address_latitude, :address_longitude, :status)
   end
 
 end
