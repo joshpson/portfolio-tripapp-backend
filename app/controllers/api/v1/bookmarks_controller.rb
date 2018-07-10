@@ -1,8 +1,9 @@
 class Api::V1::BookmarksController < ApplicationController
   before_action :find_bookmark, only: [:show, :destroy]
+  before_action :authenticate_user
 
   def index
-    @bookmarks = Bookmark.all
+    @bookmarks = current_user.bookmarks
     render json: @bookmarks
   end
 

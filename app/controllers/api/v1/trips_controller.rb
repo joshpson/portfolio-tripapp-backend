@@ -3,7 +3,7 @@ class Api::V1::TripsController < ApplicationController
   before_action :find_trip, only: [:update, :show, :destroy]
 
   def index
-    @trips = Trip.all
+    @trips = current_user.trips
     render json: @trips
   end
 
@@ -41,7 +41,7 @@ class Api::V1::TripsController < ApplicationController
   end
 
   def trip_params
-    params.require(:trip).permit(:city, :start_date, :end_date, :address, :image, :address_latitude, :address_longitude, :status)
+    params.require(:trip).permit(:city, :start_date, :end_date, :address, :image, :address_latitude, :address_longitude, :status, :user_id)
   end
 
 end
