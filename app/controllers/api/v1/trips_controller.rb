@@ -30,6 +30,11 @@ class Api::V1::TripsController < ApplicationController
     render json: @trip
   end
 
+  def search
+    @results = Yelp.getData(params[:query], params[:address_latitude], params[:address_longitude])
+    render json: @results
+  end
+
   def destroy
     @trip.destroy
   end
@@ -41,7 +46,7 @@ class Api::V1::TripsController < ApplicationController
   end
 
   def trip_params
-    params.require(:trip).permit(:city, :start_date, :end_date, :address, :image, :address_latitude, :address_longitude, :status, :user_id)
+    params.permit(:city, :start_date, :end_date, :address, :image, :address_latitude, :address_longitude, :status, :user_id, :query)
   end
 
 end
