@@ -35,6 +35,16 @@ class Api::V1::TripsController < ApplicationController
     render json: @results
   end
 
+  def categories
+    @results = Yelp.getCategories()
+    render json: @results
+  end
+
+  def photos
+    @results = Yelp.getPhotos(params[:business])
+    render json: @results
+  end
+
   def destroy
     @trip.destroy
   end

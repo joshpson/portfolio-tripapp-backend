@@ -6,6 +6,8 @@ Rails.application.routes.draw do
       get '/user', to: 'users#show_user'
       resources :trips, :bookmarks, :users
       get '/search' => 'trips#search'
+      get '/categories' => 'trips#categories'
+       get '/photos' => 'trips#photos'
     end
   end
 
