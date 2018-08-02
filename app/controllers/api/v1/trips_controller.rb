@@ -45,6 +45,11 @@ class Api::V1::TripsController < ApplicationController
     render json: @results
   end
 
+  def directions
+    @results = Mapbox.getDirections(params[:directionsType], params[:userLong], params[:userLat], params[:destLong], params[:destLat])
+    render json: @results
+  end
+
   def destroy
     @trip.destroy
   end

@@ -7,7 +7,8 @@ Rails.application.routes.draw do
       resources :trips, :bookmarks, :users
       get '/search' => 'trips#search'
       get '/categories' => 'trips#categories'
-       get '/photos' => 'trips#photos'
+      get '/photos' => 'trips#photos'
+      get '/directions' => 'trips#directions'
     end
   end
 
