@@ -50,6 +50,11 @@ class Api::V1::TripsController < ApplicationController
     render json: @results
   end
 
+  def mapbox
+    @results = Mapbox.search(params[:query])
+    render json: @results
+  end
+
   def destroy
     @trip.destroy
   end

@@ -9,4 +9,11 @@ class Mapbox < ApplicationRecord
     response.body
   end
 
+  def self.search(query)
+    response = Faraday.get("https://api.mapbox.com/geocoding/v5/mapbox.places/#{
+        query
+      }.json?access_token=#{Rails.application.credentials.mapbox}&country=us")
+    response.body
+  end
+
 end

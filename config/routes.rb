@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       get '/categories' => 'trips#categories'
       get '/photos' => 'trips#photos'
       get '/directions' => 'trips#directions'
+      get '/mapbox' => 'trips#mapbox'
     end
   end
 
