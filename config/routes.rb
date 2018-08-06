@@ -7,9 +7,11 @@ Rails.application.routes.draw do
       resources :trips, :bookmarks, :users
       get '/search' => 'trips#search'
       get '/categories' => 'trips#categories'
-      get '/photos' => 'trips#photos'
+      get '/data' => 'trips#data'
       get '/directions' => 'trips#directions'
       get '/mapbox' => 'trips#mapbox'
+      get '/mapboxtoken' => 'trips#mapboxtoken'
+      get '/wikiphoto' => 'trips#wikiphoto'
     end
   end
 

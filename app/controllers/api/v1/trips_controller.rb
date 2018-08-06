@@ -31,7 +31,12 @@ class Api::V1::TripsController < ApplicationController
   end
 
   def search
-    @results = Yelp.getData(params[:query], params[:address_latitude], params[:address_longitude])
+    @results = Yelp.search(params[:query], params[:address_latitude], params[:address_longitude])
+    render json: @results
+  end
+
+  def wikiphoto
+    @results = Wiki.getData(params[:id])
     render json: @results
   end
 
@@ -40,8 +45,8 @@ class Api::V1::TripsController < ApplicationController
     render json: @results
   end
 
-  def photos
-    @results = Yelp.getPhotos(params[:business])
+  def data
+    @results = Yelp.getData(params[:business])
     render json: @results
   end
 
@@ -52,6 +57,11 @@ class Api::V1::TripsController < ApplicationController
 
   def mapbox
     @results = Mapbox.search(params[:query])
+    render json: @results
+  end
+
+  def mapboxtoken
+    @results = {token: Mapbox.token()}
     render json: @results
   end
 

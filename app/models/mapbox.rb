@@ -16,4 +16,8 @@ class Mapbox < ApplicationRecord
     response.body
   end
 
+  def self.token()
+    Rails.application.credentials.mapbox
+  end
+
 end
