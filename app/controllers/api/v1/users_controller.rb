@@ -1,6 +1,11 @@
 class Api::V1::UsersController < ApplicationController
   before_action :authenticate_user, only: [:show_user]
 
+  def index
+    @users = User.all
+    render json: @users
+  end
+
   def show_user
     render json: current_user
   end
