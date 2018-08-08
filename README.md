@@ -1,24 +1,12 @@
-# README
+Single page application built using Ruby on Rails, React, and Semantic UI.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Users can save trips and find the top-rated restaurants near their hotel. This app utilizes the Mapbox, Wikipedia, and Yelp APIs.
 
-Things you may want to cover:
+This was built as a project at Flatiron School in Washington D.C. with Adam Cohn.
 
-* Ruby version
+Demo Account: username: demo@demo.com
+pw: demo
 
-* System dependencies
+https://hungrytrips-pearson.netlify.com/
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Frontend repo: https://github.com/joshpson/portfolio-tripapp-frontend
